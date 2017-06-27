@@ -35,8 +35,9 @@ class Weather extends Component {
     getTemp(location).then(function(temp) {
       this.setState({location: location, temp: temp, isLoading: false});
     }.bind(this), function(errMessage) {
-      alert(errMessage)
-    });
+      alert(errMessage);
+      this.setState({isLoading: false});
+    }.bind(this));
 
   }
 }
