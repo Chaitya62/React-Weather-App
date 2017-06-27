@@ -11521,6 +11521,11 @@ var Examples = function (_Component) {
           'h2',
           null,
           'Examples'
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          'Welcome to examples page'
         )
       );
     }
