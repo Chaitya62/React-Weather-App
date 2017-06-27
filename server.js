@@ -1,7 +1,7 @@
 var express = require('express');
 
 var app = express();
-const port = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(express.static('app'));
 
@@ -14,7 +14,7 @@ app.use(function(req, res, next){
 	}
 });
 
-app.listen(port,function(){
-	console.log("Listening on port "+port);
+app.listen(PORT,function(){
+	console.log("Listening on port "+PORT);
 	
 });
