@@ -16,8 +16,10 @@ class WeatherForm extends Component {
     e.preventDefault();
     var cityRef = this.refs.city;
     var city = cityRef.value;
-    console.log(city);
-    cityRef.value = '';
+    if (city.length > 0) {
+      this.props.onSearch(city);
+      cityRef.value = '';
+    }
 
   }
 }

@@ -2,10 +2,12 @@ import React, {Component} from 'react';
 
 class WeatherMessage extends Component {
   render() {
+    const {temp, location} = this.props;
     return (
       <div>
 
-        <p>This is a message</p>
+        <h2>It is {temp + " "}
+          in {location}</h2>
 
       </div>
     );
