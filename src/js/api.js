@@ -12,7 +12,7 @@ function getTemp(location){
   var encodedLocation = encodeURIComponent(location.trim())
   var requestUrl = `${BASE_URL}&q=${encodedLocation}`;
 
-  return axios.get(requestUrl).then(function(res){
+  return axios.get(requestUrl).then((res)=>{
     if(res.data.cod && res.data.message){
       throw new Error(res.data.message);
     }

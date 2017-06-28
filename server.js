@@ -7,8 +7,8 @@ app.use(express.static('app'));
 
 app.use(function(req, res, next){
 	//console.log(req.headers['x-forwarded-proto'])
-	if(req.headers=['x-forwarded-proto'] === 'https'){
-	
+	if(req.headers['x-forwarded-proto'] === 'https'){
+
 		res.redirect('http://'+req.hostname+req.url);
 	}
 	else{
@@ -18,5 +18,5 @@ app.use(function(req, res, next){
 
 app.listen(PORT,function(){
 	console.log("Listening on port "+PORT);
-	
+
 });
