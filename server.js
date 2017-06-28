@@ -8,8 +8,9 @@ app.use(express.static('app'));
 app.use(function(req, res, next){
 	//console.log(req.headers['x-forwarded-proto'])
 	if(req.headers['x-forwarded-proto'] === 'https'){
+		alert("here");
+		res.redirect('http://' + req.hostname + req.url);
 
-		res.redirect('http://'+req.hostname+req.url);
 	}
 	else{
 		next();
