@@ -6,7 +6,7 @@ class WeatherForm extends Component {
       <div>
         <form onSubmit={this.handleSubmit.bind(this)}>
           <input type="search" className="" ref='city' placeholder="Enter a city"/>
-          <input type="submit" className="button" value="Get Weather"/>
+          <input type="submit" className="hollow expanded button" value="Get Weather"/>
         </form>
       </div>
     );

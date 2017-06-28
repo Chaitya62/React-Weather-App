@@ -11761,7 +11761,7 @@ var WeatherForm = function (_Component) {
           "form",
           { onSubmit: this.handleSubmit.bind(this) },
           _react2.default.createElement("input", { type: "search", className: "", ref: "city", placeholder: "Enter a city" }),
-          _react2.default.createElement("input", { type: "submit", className: "button", value: "Get Weather" })
+          _react2.default.createElement("input", { type: "submit", className: "hollow expanded button", value: "Get Weather" })
         )
       );
     }
@@ -26854,8 +26854,8 @@ var Weather = function (_Component) {
         'div',
         null,
         _react2.default.createElement(
-          'h2',
-          null,
+          'h1',
+          { className: 'text-center' },
           'Weather'
         ),
         _react2.default.createElement(_WeatherForm2.default, { onSearch: this.handleSearch.bind(this) }),
@@ -26906,8 +26906,8 @@ var WeatherMessage = function WeatherMessage(_ref) {
     "div",
     null,
     _react2.default.createElement(
-      "h2",
-      null,
+      "h3",
+      { className: "text-center" },
       "It is ",
       temp + " ",
       "in ",
