@@ -27846,17 +27846,46 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var About = function About(props) {
   return _react2.default.createElement(
-    'div',
+    "div",
     null,
     _react2.default.createElement(
-      'h2',
-      null,
-      'About'
+      "h1",
+      { className: "text-center" },
+      "About"
     ),
     _react2.default.createElement(
-      'p',
+      "p",
+      { className: "lead" },
+      "This is a weather application build on react. I have build this for practicing my react skills"
+    ),
+    _react2.default.createElement(
+      "p",
+      { className: "lead" },
+      "Here are some of the tools I have used"
+    ),
+    _react2.default.createElement(
+      "ol",
       null,
-      'Welcome to About Page'
+      _react2.default.createElement(
+        "li",
+        null,
+        _react2.default.createElement(
+          "a",
+          { href: "https://facebook.github.io/react" },
+          "React"
+        ),
+        "- This is a Javascript FrameWork"
+      ),
+      _react2.default.createElement(
+        "li",
+        null,
+        _react2.default.createElement(
+          "a",
+          { href: "http://openweathermap.org" },
+          "OpenWeatherMap API"
+        ),
+        "- To get data by location"
+      )
     )
   );
 };
@@ -27893,7 +27922,7 @@ var Examples = function Examples(props) {
     ),
     _react2.default.createElement(
       'p',
-      { className: '' },
+      { className: 'lead' },
       'Hera are a few locations you can try out'
     ),
     _react2.default.createElement(
