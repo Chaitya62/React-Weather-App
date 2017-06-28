@@ -7,7 +7,14 @@ const App = (props) => {
   return (
     <div>
       <Navbar/>
-      <AppRoutes/>
+      <div className="grid-x">
+        <div className="medium-3 large-4 cell"></div>
+        <div className="cell large-4 small-12 medium-6 small-centered">
+          <AppRoutes/>
+        </div>
+        <div className="medium-3 large-4 cell"></div>
+      </div>
+
     </div>
   );
 }
