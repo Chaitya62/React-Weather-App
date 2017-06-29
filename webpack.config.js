@@ -23,7 +23,8 @@ module.exports= {
   },
   resolve:{
     alias: {
-      App: path.resolve(__dirname,'./src/js/components/App.jsx')
+      App: path.resolve(__dirname,'./src/js/components/App.jsx'),
+      applicationStyles: path.resolve(__dirname,'./app/css/')
     },
     extensions: ['.js','.jsx']
   },
@@ -36,7 +37,11 @@ module.exports= {
           presets: ['react','es2015']
         },
         exclude: /(node_modules|bower_components)/
-      }
+      },
+      {
+				test: /\.css$/,
+				loader: ['style-loader', 'css-loader']
+			}
     ]
   }
 };

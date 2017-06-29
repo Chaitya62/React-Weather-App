@@ -5,7 +5,9 @@ import App from 'App';
 
 // load foundation-sites
 
-require('style-loader!css-loader!foundation-sites/dist/css/foundation.min.css')
+require('foundation-sites/dist/css/foundation.min.css');
+require('applicationStyles/app.css');
+
 $(document).foundation();
 
 ReactDOM.render(
