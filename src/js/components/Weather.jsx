@@ -12,6 +12,31 @@ class Weather extends Component {
       errMessage: undefined
     }
   }
+
+  makeSearchFromLocation(props) {
+    if (!props)
+      props = this.props;
+    var query = /\?(.*?)=(.*?)&?$/.exec(props.location.search);
+
+    if (query && query.length >= 2) {
+      var location = query[2];
+
+      if (location && location.length > 0) {
+        this.handleSearch(location);
+        window.location.hash = '#/';
+      }
+    }
+  }
+
+  componentDidMount() {
+
+    this.makeSearchFromLocation();
+
+  }
+  componentWillReceiveProps(newProps) {
+
+    this.makeSearchFromLocation(newProps);
+  }
   render() {
     var {temp, location, isLoading, errMessage} = this.state;
     var self = this;
@@ -48,7 +73,7 @@ class Weather extends Component {
   }
 
   handleSearch(location) {
-    this.setState({isLoading: true});
+    this.setState({isLoading: true, errorMessage: undefined, location: undefined, temp: undefined});
     getTemp(location).then(function(temp) {
       this.setState({location: location, temp: temp, isLoading: false, errMessage: undefined});
     }.bind(this)).catch(function(errMessage) {

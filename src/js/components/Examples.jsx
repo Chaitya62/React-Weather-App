@@ -8,10 +8,10 @@ const Examples = (props) => {
       <p className="lead">Hera are a few locations you can try out</p>
       <ol>
         <li>
-          <Link to='/location=Mumbai'>Mumbai, India</Link>
+          <Link to='/?location=Mumbai'>Mumbai, India</Link>
         </li>
         <li>
-          <Link to='/location=Delhi'>Delhi, India</Link>
+          <Link to='/?location=Delhi'>Delhi, India</Link>
         </li>
       </ol>
     </div>

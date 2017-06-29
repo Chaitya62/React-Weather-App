@@ -3,9 +3,19 @@ import {NavLink} from 'react-router-dom';
 import WeatherForm from './WeatherForm.jsx';
 
 class Navbar extends Component {
+
   onSearch(e) {
     e.preventDefault();
-    alert('not yet wired up');
+
+    var location = this.refs.location.value;
+    var encodedLocation = encodeURIComponent(location);
+    if (location.length > 0) {
+      this.refs.location.value = '';
+      var query = '#/?location=' + encodedLocation;
+      window.location.hash = query;
+
+    }
+
   }
   render() {
     return (
@@ -33,10 +43,10 @@ class Navbar extends Component {
             </ul>
           </div>
           <div className="top-bar-right">
-            <form onSubmit={this.onSearch}>
+            <form onSubmit={this.onSearch.bind(this)}>
               <ul className="menu">
                 <li>
-                  <input type="search" placeholder="Search Weather"/>
+                  <input type="search" ref='location' placeholder="Search Weather"/>
                 </li>
                 <li>
                   <input className="button" type="submit" value="Get Weather"/>

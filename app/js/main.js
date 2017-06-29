@@ -27084,7 +27084,14 @@ var Navbar = function (_Component) {
     key: 'onSearch',
     value: function onSearch(e) {
       e.preventDefault();
-      alert('not yet wired up');
+
+      var location = this.refs.location.value;
+      var encodedLocation = encodeURIComponent(location);
+      if (location.length > 0) {
+        this.refs.location.value = '';
+        var query = '#/?location=' + encodedLocation;
+        window.location.hash = query;
+      }
     }
   }, {
     key: 'render',
@@ -27146,14 +27153,14 @@ var Navbar = function (_Component) {
             { className: 'top-bar-right' },
             _react2.default.createElement(
               'form',
-              { onSubmit: this.onSearch },
+              { onSubmit: this.onSearch.bind(this) },
               _react2.default.createElement(
                 'ul',
                 { className: 'menu' },
                 _react2.default.createElement(
                   'li',
                   null,
-                  _react2.default.createElement('input', { type: 'search', placeholder: 'Search Weather' })
+                  _react2.default.createElement('input', { type: 'search', ref: 'location', placeholder: 'Search Weather' })
                 ),
                 _react2.default.createElement(
                   'li',
@@ -27273,6 +27280,33 @@ var Weather = function (_Component) {
   }
 
   _createClass(Weather, [{
+    key: 'makeSearchFromLocation',
+    value: function makeSearchFromLocation(props) {
+      if (!props) props = this.props;
+      var query = /\?(.*?)=(.*?)&?$/.exec(props.location.search);
+
+      if (query && query.length >= 2) {
+        var location = query[2];
+
+        if (location && location.length > 0) {
+          this.handleSearch(location);
+          window.location.hash = '#/';
+        }
+      }
+    }
+  }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+
+      this.makeSearchFromLocation();
+    }
+  }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(newProps) {
+
+      this.makeSearchFromLocation(newProps);
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _state = this.state,
@@ -27331,7 +27365,7 @@ var Weather = function (_Component) {
   }, {
     key: 'handleSearch',
     value: function handleSearch(location) {
-      this.setState({ isLoading: true });
+      this.setState({ isLoading: true, errorMessage: undefined, location: undefined, temp: undefined });
       (0, _api2.default)(location).then(function (temp) {
         this.setState({ location: location, temp: temp, isLoading: false, errMessage: undefined });
       }.bind(this)).catch(function (errMessage) {
@@ -28686,7 +28720,7 @@ var Examples = function Examples(props) {
         null,
         _react2.default.createElement(
           _reactRouterDom.Link,
-          { to: '/location=Mumbai' },
+          { to: '/?location=Mumbai' },
           'Mumbai, India'
         )
       ),
@@ -28695,7 +28729,7 @@ var Examples = function Examples(props) {
         null,
         _react2.default.createElement(
           _reactRouterDom.Link,
-          { to: '/location=Delhi' },
+          { to: '/?location=Delhi' },
           'Delhi, India'
         )
       )
