@@ -28869,8 +28869,8 @@ if (content.locals) module.exports = content.locals;
 if (false) {
 	// When the styles change, update the <style> tags
 	if (!content.locals) {
-		module.hot.accept("!!../../node_modules/css-loader/index.js!./app.css", function () {
-			var newContent = require("!!../../node_modules/css-loader/index.js!./app.css");
+		module.hot.accept("!!../../node_modules/css-loader/index.js!../../node_modules/sass-loader/lib/loader.js!./app.scss", function () {
+			var newContent = require("!!../../node_modules/css-loader/index.js!../../node_modules/sass-loader/lib/loader.js!./app.scss");
 			if (typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -28890,7 +28890,7 @@ exports = module.exports = __webpack_require__(113)(undefined);
 
 
 // module
-exports.push([module.i, ".page-title{\n  margin-top: 2.5rem;\n  margin-bottom: 2.5rem;\n}\n\ninput[type='search']{\n  box-shadow: none;\n}\n", ""]);
+exports.push([module.i, ".page-title {\n  color: #555;\n  margin-top: 2.5rem;\n  margin-bottom: 2.5rem; }\n\ninput[type='search'] {\n  box-shadow: none; }\n", ""]);
 
 // exports
 
